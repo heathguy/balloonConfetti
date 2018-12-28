@@ -9,12 +9,12 @@ var spritesheet;
 var spritedata;
 
 function preload() {
-	spritedata = loadJSON('balloon.json');
+	spritedata = loadJSON('balloons.json');
 	spritesheet = loadImage('balloons.png');
 }
 
 function setup() {
-	createCanvas(400, 400);
+	createCanvas(800, 600);
 	
 	gravity = createVector(0,-9.8);
 	balloonSize = 40;
@@ -31,7 +31,8 @@ function setup() {
 
 function draw() {
 	background(240);
-	image(spritesheet);
+	//image(spritesheet,0,0,860,300);
+	//var balloon1 = spritesheet.frames[0].position.
 	noStroke();
 	for(var i = balloons.length -1; i >= 0; i--) {
 		if(balloons[i].position.y > balloons[i].s/2){
@@ -83,10 +84,17 @@ class Balloon {
 		this.position = createVector(x,y);
 		this.velocity = createVector(0,0);
 		this.acceleration = createVector(0,0);
+		
+		var spriteframes = spritedata.frames;
+		var balloonNbr = int(random(4));
+		var spritepos = spriteframes[balloonNbr].position;
+		this.balloonImg = spritesheet.get(spritepos.x,spritepos.y,spritepos.w,spritepos.h);
+
 	}
 	show() {
-		fill(this.c)
-		ellipse(this.position.x,this.position.y,this.s);
+	//	fill(this.c)
+	//	ellipse(this.position.x,this.position.y,this.s);
+		image(this.balloonImg,this.position.x,this.position.y,50,50);
 	}
 	// F = M * A => A = F / M
 	applyForce(force) {
