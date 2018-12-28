@@ -5,6 +5,14 @@ var balloonSize;
 var confettiSize;
 var numConfettiParticles;
 
+var spritesheet;
+var spritedata;
+
+function preload() {
+	spritedata = loadJSON('balloon.json');
+	spritesheet = loadImage('balloons.png');
+}
+
 function setup() {
 	createCanvas(400, 400);
 	
@@ -23,6 +31,7 @@ function setup() {
 
 function draw() {
 	background(240);
+	image(spritesheet);
 	noStroke();
 	for(var i = balloons.length -1; i >= 0; i--) {
 		if(balloons[i].position.y > balloons[i].s/2){

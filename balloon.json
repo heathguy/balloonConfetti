@@ -1,0 +1,40 @@
+{
+	"frames": [
+	{
+		"name": "balloon-00",
+		"position": {   // this is the start x,y and w,h for the image on the sheet
+			"x": 0,
+			"y": 0,
+			"w": 220,
+			"h": 300
+		}
+	},
+	{
+	"name": "balloon-01",
+		"position": {   // this is the start x,y and w,h for the image on the sheet
+			"x": 220,
+			"y": 0,
+			"w": 220,
+			"h": 300
+		}
+	},
+	{
+	"name": "balloon-02",
+		"position": {   // this is the start x,y and w,h for the image on the sheet
+			"x": 440,
+			"y": 0,
+			"w": 220,
+			"h": 300
+		}
+	},
+	{
+	"name": "balloon-03",
+		"position": {   // this is the start x,y and w,h for the image on the sheet
+			"x": 660,
+			"y": 0,
+			"w": 220,
+			"h": 300
+		}
+	}
+	]
+}
