@@ -17,7 +17,7 @@ function setup() {
 	createCanvas(800, 600);
 	
 	gravity = createVector(0,-9.8);
-	balloonSize = 40;
+	balloonSize = 50;
 	confettiSize = 10;
 	numConfettiParticles = 20;
 	
@@ -66,8 +66,9 @@ function draw() {
 function mouseClicked() {
 	// get mouse location and determine which balloon was clicked
 	for(var i = balloons.length -1; i >= 0; i--) {
-		if(dist(mouseX,mouseY,balloons[i].position.x,balloons[i].position.y) < balloons[i].s/2) {
+		//if(dist(mouseX,mouseY,balloons[i].position.x,balloons[i].position.y) < balloons[i].s/2) {
 			//console.log("Popped a Balloon!");
+		if(mouseX >= balloons[i].position.x && mouseX <= balloons[i].position.x + balloons[i].s && mouseY >= balloons[i].position.y && mouseY <= balloons[i].position.y+balloons[i].s) {
 			for(var j = 0; j < numConfettiParticles; j++) {
 				confettiArr.push(new ConfettiParticle(balloons[i]));
 			}
@@ -94,7 +95,8 @@ class Balloon {
 	show() {
 	//	fill(this.c)
 	//	ellipse(this.position.x,this.position.y,this.s);
-		image(this.balloonImg,this.position.x,this.position.y,50,50);
+		//image(this.balloonImg,this.position.x,this.position.y,50,50);
+		image(this.balloonImg,this.position.x,this.position.y,this.s,this.s);
 	}
 	// F = M * A => A = F / M
 	applyForce(force) {
