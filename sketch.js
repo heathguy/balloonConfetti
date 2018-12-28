@@ -8,6 +8,8 @@ var numConfettiParticles;
 var spritesheet;
 var spritedata;
 
+var ageAlpha;
+
 function preload() {
 	spritedata = loadJSON('balloons.json');
 	spritesheet = loadImage('balloons.png');
@@ -20,6 +22,7 @@ function setup() {
 	balloonSize = 50;
 	confettiSize = 10;
 	numConfettiParticles = 20;
+	ageAlpha = -100;
 	
 	balloons = [];
 	confettiArr = [];
@@ -59,7 +62,14 @@ function draw() {
 	
 	// stop loop if no more balloons or confetti
 	if(balloons.length === 0 && confettiArr.length === 0) {
-		noLoop();
+		//noLoop();
+		//stroke(0);
+		fill(50,125,75,ageAlpha);
+		textAlign(CENTER);
+		textSize(512);
+		text("36",width/2,height-150);
+		ageAlpha += 1;
+		
 	}
 }
 
